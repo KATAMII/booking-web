@@ -2,7 +2,7 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 3rem;
+  gap: 1rem;
   padding: 20px;
   font-family: "poppins", sans-serif;
  
@@ -80,7 +80,8 @@ li{
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 2rem;
+  
 }
 
 .image-item {
@@ -92,7 +93,7 @@ li{
 }
 
 .image-item img {
-  width: 400px;
+  width:320px;
   height:50vh;
   display: block;
   padding: 0.5rem;

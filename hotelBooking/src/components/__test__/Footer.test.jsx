@@ -16,10 +16,6 @@ describe("Footer", () => {
     expect(siteName).toBeInTheDocument();
   });
 
- 
-  
- 
-
 
   it("renders the social media links", () => {
     render(
