@@ -1,0 +1,175 @@
+body {
+    background-color: #0d3d25;
+}
+
+.about-us {
+    padding: 20px;
+    text-align: left;
+    background-color: #0d3d25;
+    display: flex;
+    justify-content: space-between;
+   
+    
+}
+.para{
+    flex-basis: 30%;
+    margin-top: 3rem;
+    margin-left: 3rem;
+}
+.images{
+    flex-basis: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+    margin-top: 20px;
+}
+.about-us h2 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    font-family: "Judson",sans-serif;
+}
+
+.about-us h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.about-us p {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.location {
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 1rem;
+}
+
+.location svg {
+    width: 30px;
+    height: 30px;
+    color: var(--btn-color-2);
+}
+
+.view-more-btn {
+    background-color: var(--btn-color-2);
+    color: #000000;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    display: inline-block;
+    margin-left: 5rem;
+}
+
+
+.rating {
+    display: flex;
+    justify-content: space-between;
+    gap: 15rem;
+    margin-top: 10px;
+    font-size: 16px;
+}
+.pool{
+    margin-top: 10px;
+    width: 90%;
+    height: 60vh;
+    overflow: hidden;
+}
+.pool img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    display: block;
+   
+    transition: ease 0.5s;
+}
+.pool img:hover{
+    transform: scale(1.1);
+}
+.room{
+    width: 60%;
+    height: 50vh; 
+    margin-top: -15rem;
+    transform: translateX(-90%);
+    overflow: hidden;
+}
+.room img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    display: block;
+    transition: ease 0.5s;
+}
+.room img:hover{
+    transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+    .about-us {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+  
+    .para,
+    .images {
+      flex-basis: 100%;
+      margin-left: 0;
+      margin-top: 20px;
+    }
+  
+    .view-more-btn {
+      margin-left: 0;
+      margin-bottom: 20px;
+    }
+  
+    .rating {
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 20px;
+    }
+  
+    .pool,
+    .room {
+      width: 100%;
+      height: auto;
+      margin-top: 20px;
+      transform: translateX(0);
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .about-us h2 {
+      font-size: 2rem;
+    }
+  
+    .about-us h1 {
+      font-size: 24px;
+    }
+  
+    .about-us p {
+      font-size: 16px;
+    }
+  
+    .location {
+      font-size: 16px;
+    }
+  
+    .view-more-btn {
+      font-size: 1.2rem;
+      padding: 8px 16px;
+    }
+  
+    .rating {
+      font-size: 14px;
+    }
+  }

@@ -1,0 +1,98 @@
+:root {
+    --bg-color: #0b3d3d;
+    --btn-color-2: #fc6b6b;
+  }
+  
+  .signup {
+    background-color: white;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .sign {
+    background-color:#FCF6F6;
+    border-radius: 10px;
+    width: 350px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+   
+  }
+  .btn a{
+    text-decoration: none;
+    display: flex;
+    align-self: flex-start;
+    margin-bottom: 2rem;
+  }
+ .btn{
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ }
+  .form2 {
+    background-color: var(--bg-color);
+    padding: 20px;
+    border-top-left-radius: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   height: auto;
+  }
+  
+  .back-button {
+    background: none;
+    border: none;
+    color: #fc6b6b;
+    font-size: 2rem;
+    position: absolute;
+    margin-bottom: 2rem;
+    left: 1rem;
+    cursor: pointer;
+  }
+  
+  .signup-label {
+    font-size: 2rem;
+    color: black;
+    margin-top: 1rem;
+    display: block;
+    font-weight: 700;
+  }
+  
+  .input-field {
+    width: 100%;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+  }
+  
+  .signup-button {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: rgb(8, 8, 8);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 2rem;
+    cursor: pointer;
+  }
+  
+  .signup-button:hover {
+    background-color: #333;
+  }
+  
+  .sinagain{
+    margin-top: 1rem;
+  }
+  .sinagain a{
+    color: var(--btn-color-2);
+  }
+  .signup-button:disabled{
+    background-color: #ccc;
+  }

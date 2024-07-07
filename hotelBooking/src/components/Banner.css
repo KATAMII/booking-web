@@ -1,0 +1,43 @@
+
+
+.banner {
+    background-image: url('../assets/banner2.jpeg'); 
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    padding: 100px 20px;
+    position: relative;
+    color: white;
+    height: 200px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: 1;
+  }
+  
+  .banner-content {
+    position: relative;
+    z-index: 2;
+  }
+  
+  .banner-content h1 {
+    font-size: 48px;
+    margin-bottom: 10px;
+    font-family: "Judson",sans-serif;
+  }
+  
+  .banner-content h2 {
+    font-size: 24px;
+    font-family: "Judson",sans-serif;
+  }
+  
