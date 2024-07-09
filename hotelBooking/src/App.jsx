@@ -7,6 +7,7 @@ import Home from './pages/Home/Home';
 import Rooms from './pages/Rooms/Rooms';
 import SignIn from './pages/Authentication/SignIn';
 import SignUp from './pages/Authentication/SignUp';
+import AdminDashboard from './pages/Admin/admin.jsx';
 import { AuthProvider } from '../../Server/authentication/authentication.jsx';  // Ensure correct path and file extension
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
           <Route path="/Contact" element={<Contact />} />
           <Route path="/SignIn" element={<SignIn />} />
           <Route path="/SignUp" element={<SignUp />} />
+          <Route path="/admin" component={AdminDashboard} />
         </Routes>
       </BrowserRouter>
     </AuthProvider>

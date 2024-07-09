@@ -3,7 +3,6 @@ import { useFormik } from 'formik';
 import './SignUp.css';
 import { useNavigate } from 'react-router-dom';
 import { apiUrl } from '../../../utils/config';
-// const apiUrl=import.meta.env.VITE_API_URL_ROOT
 
 function SignUp() {
   const [loading, setLoading] = useState(false);
@@ -41,7 +40,8 @@ function SignUp() {
       lastName: '',
       email: '',
       password: '',
-      confirmPassword: ''
+      confirmPassword: '',
+      role: 'client' 
     },
     onSubmit: handleSubmit
   });
@@ -61,7 +61,6 @@ function SignUp() {
             className="input-field"
             {...formik.getFieldProps('firstName')}
           />
-
           <input
             type="text"
             name="lastName"
@@ -69,7 +68,6 @@ function SignUp() {
             className="input-field"
             {...formik.getFieldProps('lastName')}
           />
-
           <input
             type="email"
             name="email"
@@ -77,7 +75,6 @@ function SignUp() {
             className="input-field"
             {...formik.getFieldProps('email')}
           />
-
           <input
             type="password"
             name="password"
@@ -85,7 +82,6 @@ function SignUp() {
             className="input-field"
             {...formik.getFieldProps('password')}
           />
-
           <input
             type="password"
             name="confirmPassword"
@@ -93,7 +89,14 @@ function SignUp() {
             className="input-field"
             {...formik.getFieldProps('confirmPassword')}
           />
-
+          <select
+            name="role"
+            className="input-field"
+            {...formik.getFieldProps('role')}
+          >
+            <option value="client">Client</option>
+            <option value="admin">Admin</option>
+          </select>
           <button type="submit" className="signup-button" disabled={loading}>
             {loading ? "please wait..." : "Sign up"}
           </button>

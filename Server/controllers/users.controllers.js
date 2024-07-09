@@ -6,25 +6,22 @@ const prisma = new PrismaClient();
 
 export const createUser = async (req, res) => {
   try {
-    const { firstName, lastName, email, password } = req.body;
+    const { firstName, lastName, email, password, role = 'client' } = req.body;
 
     const hashpassword = bcrypt.hashSync(password, 10);
     const newuser = await prisma.user.create({
       data: {
-        firstName: firstName,
-        lastName: lastName,
-        email: email,
+        firstName,
+        lastName,
+        email,
         password: hashpassword,
+        role, 
       },
     });
-    res
-      .status(201)
-      .json({ success: true, message: "User registered successfully" });
+    res.status(201).json({ success: true, message: "User registered successfully" });
   } catch (e) {
     console.log(e.message);
-    res
-      .status(500)
-      .json({ success: false, message: "An error occurred in the server" });
+    res.status(500).json({ success: false, message: "An error occurred in the server" });
   }
 };
 
@@ -49,6 +46,7 @@ export const loginUser = async (req, res) => {
       firstName: user.firstName,
       lastName: user.lastName,
       email: user.email,
+      role: user.role, 
     };
     const token = jwt.sign(payload, process.env.JWT_SECRET, {
       expiresIn: "5h",

@@ -25,11 +25,15 @@ function SignIn() {
       });
       const data = await response.json();
       if (data.success) {
-       
         document.cookie = `hotel_access_token=${data.token}; path=/`;
         localStorage.setItem('user_id', data.data.id); 
+        localStorage.setItem('role', data.data.role); 
         setIsLoggedIn(true);
-        navigate("/");
+        if (data.data.role === 'admin') {
+          navigate("/admin");
+        } else {
+          navigate("/");
+        }
       } else {
         setError('Invalid email or password');
       }

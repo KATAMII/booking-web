@@ -1,5 +1,3 @@
-import jwt from 'jsonwebtoken';
-
 export const authenticateUser = (req, res, next) => {
   const token = req.cookies.hotel_access_token;
 
@@ -13,5 +11,13 @@ export const authenticateUser = (req, res, next) => {
     next();
   } catch (ex) {
     res.status(400).json({ success: false, message: 'Invalid token.' });
+  }
+};
+
+export const authorizeAdmin = (req, res, next) => {
+  if (req.user.role === 'admin') {
+    next();
+  } else {
+    res.status(403).json({ success: false, message: 'Access denied. Not an admin.' });
   }
 };
