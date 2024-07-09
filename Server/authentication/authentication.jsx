@@ -12,8 +12,14 @@ export const AuthProvider = ({ children }) => {
     }
   }, []);
 
+  const logout = () => {
+    localStorage.removeItem('hotel_access_token');
+    localStorage.removeItem('user_id');
+    setIsLoggedIn(false);
+  };
+
   return (
-    <AuthContext.Provider value={{ isLoggedIn, setIsLoggedIn }}>
+    <AuthContext.Provider value={{ isLoggedIn,setIsLoggedIn, logout }}>
       {children}
     </AuthContext.Provider>
   );

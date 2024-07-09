@@ -1,9 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import logo from "../assets/sarova2.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import AuthContext from "../../../Server/authentication/authentication";
 import "./Header.css";
 
 function Header() {
+  const { isLoggedIn, logout } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout();  
+    navigate('/');  
+  };
+
   return (
     <div className="navbar">
       <div className="navbar__logo">
@@ -27,9 +36,13 @@ function Header() {
           </ol>
         </div>
         <div className="headerbtn">
-          <button className="btnn">
-            <Link to="/SignIn">Sign In</Link>
-          </button>
+          {isLoggedIn ? (
+            <button className="btnn" onClick={handleLogout}>Log Out</button>
+          ) : (
+            <button className="btnn">
+              <Link to="/SignIn">Sign In</Link>
+            </button>
+          )}
         </div>
       </div>
     </div>

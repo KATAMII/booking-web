@@ -15,7 +15,7 @@ function Hero() {
   });
   const [error, setError] = useState('');
   const navigate = useNavigate();
-
+ 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -87,6 +87,7 @@ function Hero() {
             <p className="heropara">Home Away From Home</p>
           </div>
         </div>
+        {!isLoggedIn && (
         <div className="hero-link">
           <button className="herobtn">
             <Link to="/SignUp">Sign Up</Link>
@@ -95,6 +96,8 @@ function Hero() {
             <Link to="/SignIn">Sign In</Link>
           </button>
         </div>
+        )}
+
       </div>
       <div className="book">
         <form className="booking-form" onSubmit={handleSubmit}>
