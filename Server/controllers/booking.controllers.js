@@ -6,14 +6,15 @@ export const createBooking = async (req, res) => {
   const { checkIn, checkOut, adults, kids, roomType, userId } = req.body;
 
   console.log('Booking request received:', req.body);
-
+   const kidsInt = parseInt(kids)
+   const adultsInt = parseInt(adults)
   try {
     const booking = await prisma.booking.create({
       data: {
         checkIn: new Date(checkIn),
         checkOut: new Date(checkOut),
-        adults,
-        kids,
+        adults:adultsInt,
+        kids:kidsInt,
         roomType,
         userId,
       },
