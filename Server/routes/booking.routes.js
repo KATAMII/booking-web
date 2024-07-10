@@ -8,4 +8,6 @@ const router = Router();
 router.post('/create', authenticateUser, createBooking);
 router.get('/bookings', getAllBookings);
 
+router.delete('/bookings/:bookingId', deleteBooking);
+router.post('/:bookingId/approve', approveBooking);
 export default router;

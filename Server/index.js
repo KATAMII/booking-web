@@ -21,6 +21,7 @@ app.use(cookieParser());
 app.use("/api/users", usersRouter);
 app.use("/api/bookings", bookingsRouter); 
 
+
 app.listen(3000, () => {
   console.log("Server running on port 3000 ...");
 });
