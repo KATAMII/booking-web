@@ -5,7 +5,7 @@ import { authenticateUser } from '../middleware/auth.middleware.js';
 
 const router = Router();
 
-router.post('/create', authenticateUser, createBooking);
+router.post('/create', createBooking);
 router.get('/bookings', getAllBookings);
 
 router.delete('/bookings/:bookingId', deleteBooking);
