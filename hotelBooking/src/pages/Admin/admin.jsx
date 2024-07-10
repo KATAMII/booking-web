@@ -1,47 +1,38 @@
 import React, { useEffect, useState, useContext } from 'react';
-import axios from 'axios';
 import AuthContext from '../../../../Server/authentication/authentication';
+import { apiUrl } from '../../../utils/config';
 
 const AdminDashboard = () => {
   const { isLoggedIn } = useContext(AuthContext);
   const [bookings, setBookings] = useState([]);
+  const [error, setError] = useState('');
 
   useEffect(() => {
     if (isLoggedIn) {
-      fetchBookings();
+      console.log("Fetching bookings");
+     
+      const fetchBookings = async () => {
+        try {
+          const response = await fetch(`${apiUrl}/api/bookings/bookings`)
+          const data = await response.json();
+          console.log("Bookings data:", data);
+          if (response.ok) {
+            setBookings(data);
+          } else {
+            setError(data.message || 'Failed to fetch bookings');
+          }
+        } catch (error) {
+          console.error('Error fetching bookings:', error);
+          setError('An error occurred while fetching bookings.');
+        }
+      }; [fetchBookings()];
     }
   }, [isLoggedIn]);
-
-  const fetchBookings = async () => {
-    try {
-      const response = await axios.get('/api/admin/bookings');
-      setBookings(response.data);
-    } catch (error) {
-      console.error('Error fetching bookings', error);
-    }
-  };
-
-  const approveBooking = async (bookingId) => {
-    try {
-      await axios.post(`/api/admin/bookings/${bookingId}/approve`);
-      fetchBookings();
-    } catch (error) {
-      console.error('Error approving booking', error);
-    }
-  };
-
-  const deleteBooking = async (bookingId) => {
-    try {
-      await axios.delete(`/api/admin/bookings/${bookingId}`);
-      fetchBookings();
-    } catch (error) {
-      console.error('Error deleting booking', error);
-    }
-  };
-
+  
   return (
     <div>
       <h1>Admin Dashboard</h1>
+      {error && <p className="error">{error}</p>}
       <table>
         <thead>
           <tr>
@@ -49,20 +40,20 @@ const AdminDashboard = () => {
             <th>User</th>
             <th>Room</th>
             <th>Status</th>
-            <th>Actions</th>
+            <th>CheckIn Date</th>
+            <th>Checkout Date</th>
           </tr>
         </thead>
         <tbody>
           {bookings.map((booking) => (
             <tr key={booking.id}>
               <td>{booking.id}</td>
-              <td>{booking.userId}</td>
+              <td>{booking.user ? `${booking.user.firstName} ${booking.user.lastName}` : 'N/A'}</td>
               <td>{booking.roomType}</td>
               <td>{booking.status}</td>
-              <td>
-                <button onClick={() => approveBooking(booking.id)}>Approve</button>
-                <button onClick={() => deleteBooking(booking.id)}>Delete</button>
-              </td>
+              <td>{booking.checkIn}</td>
+              <td>{booking.checkOut}</td>
+
             </tr>
           ))}
         </tbody>

@@ -26,3 +26,18 @@ export const createBooking = async (req, res) => {
     res.status(500).json({ success: false, message: error.message });
   }
 };
+export const getAllBookings = async (req, res) => {
+  try {
+    console.log("Fetching all bookings"); 
+    const bookings = await prisma.booking.findMany({
+      include: {
+        user: true, 
+      },
+    });
+    console.log(bookings); 
+    res.json(bookings);
+  } catch (error) {
+    console.error('Error fetching bookings:', error); 
+    res.status(500).json({ message: 'Server Error' });
+  }
+};

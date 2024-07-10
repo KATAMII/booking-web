@@ -22,7 +22,7 @@ function App() {
           <Route path="/Contact" element={<Contact />} />
           <Route path="/SignIn" element={<SignIn />} />
           <Route path="/SignUp" element={<SignUp />} />
-          <Route path="/admin" component={AdminDashboard} />
+          <Route path="/AdminDashboard"element={<AdminDashboard/>} />
         </Routes>
       </BrowserRouter>
     </AuthProvider>

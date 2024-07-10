@@ -30,7 +30,7 @@ function SignIn() {
         localStorage.setItem('role', data.data.role); 
         setIsLoggedIn(true);
         if (data.data.role === 'admin') {
-          navigate("/admin");
+          navigate("/AdminDashboard");
         } else {
           navigate("/");
         }
